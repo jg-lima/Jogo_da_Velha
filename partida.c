@@ -8,7 +8,7 @@ void configuraJogadores(Partida *p){
 
     while (escolha != 1 && escolha != 4){
         scanf("%d", &escolha);
-        if (escolha != 1 || escolha != 4){
+        if (escolha != 1 && escolha != 4){
             printf("Escolha inválida, Digite novamente: ");
         }
     }
@@ -21,7 +21,7 @@ void configuraJogadores(Partida *p){
         p->jogador1.tipo = 1;
         p->jogador2.tipo = 4;
     }
-    
+
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             p->tab.M[i][j] = 0;
