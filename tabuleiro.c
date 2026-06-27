@@ -2,7 +2,7 @@
 #include "jogo.h"
 
 void desenha(Tabuleiro *tab) {
-    printf("\n");
+    printf("\033[2J\033[H");
 
     for (int i = 0; i < 3; i++) {
         char simbolos[3];
