@@ -56,3 +56,7 @@ int temVencedor(Tabuleiro *tab) {
 
     return 0;
 }
+
+void marcaJogada(Tabuleiro *tab, int x, int y, int tipo){
+    tab-> M[x][y] = tipo;
+}
