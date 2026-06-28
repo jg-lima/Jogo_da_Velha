@@ -12,11 +12,8 @@ typedef struct {
     int M[3][3];
 } Tabuleiro;
 
-void inicializaTabuleiro(Tabuleiro *tab);
 void desenha(Tabuleiro *tab);
 int temVencedor(Tabuleiro *tab);
-int tabuleiroCheio(Tabuleiro *tab);
-int posicaoValida(Tabuleiro *tab, int x, int y);
 void marcaJogada(Tabuleiro *tab, int x, int y, int tipo);
 
 typedef struct {
@@ -24,7 +21,6 @@ typedef struct {
 } JogadorTeclado;
 
 void joga(JogadorTeclado *jogador, Tabuleiro *tab);
-void jogaComRetorno(JogadorTeclado *jogador, Tabuleiro *tab, int *linha, int *coluna);
 
 typedef struct {
     int tipo;
@@ -38,21 +34,10 @@ typedef struct {
     JogadorTeclado jogador2;
     JogadorTeclado jogadorHumano;
     JogadorIA jogadorIA;
+    int modo;
 } Partida;
 
 void configuraJogadores(Partida *p);
-void configuraJogoIA(Partida *p);
 void inicia(Partida *p);
-void iniciaJogoIA(Partida *p);
-
-typedef struct {
-    int socket;
-    int tipo;
-} JogadorRemoto;
-
-int conecta(char ip[], int porta);
-int aceita(int porta);
-void enviaJogada(JogadorRemoto *jogador, int linha, int coluna);
-void recebeJogada(JogadorRemoto *jogador, Tabuleiro *tab);
 
 #endif
