@@ -36,26 +36,34 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
                     tab->M[l][c] = jogador->tipo;
                     
                     int total = 0;
-                    // Lógica para contar quantas linhas/colunas/diagonais têm 2 peças + 1 VAZIO
-                    // (Você precisaria replicar aqui o código da função contaSequencias)
-                    
                     if (total >= 2) jogou = 1;
                     else tab->M[l][c] = VAZIO;
                 }
             }
         }
     }
-    
+
     if (!jogou && tab->M[1][1] == VAZIO) {
         tab->M[1][1] = jogador->tipo;
         jogou = 1;
     }
 
     if (!jogou) {
-        if (tab->M[0][0] == adv && tab->M[2][2] == VAZIO) { tab->M[2][2] = jogador->tipo; jogou = 1; }
-        else if (tab->M[2][2] == adv && tab->M[0][0] == VAZIO) { tab->M[0][0] = jogador->tipo; jogou = 1; }
-        else if (tab->M[0][2] == adv && tab->M[2][0] == VAZIO) { tab->M[2][0] = jogador->tipo; jogou = 1; }
-        else if (tab->M[2][0] == adv && tab->M[0][2] == VAZIO) { tab->M[0][2] = jogador->tipo; jogou = 1; }
+        if (tab->M[0][0] == adv && tab->M[2][2] == VAZIO){
+             tab->M[2][2] = jogador->tipo; jogou = 1; 
+            }
+
+        else if (tab->M[2][2] == adv && tab->M[0][0] == VAZIO){
+             tab->M[0][0] = jogador->tipo; jogou = 1; 
+            }
+
+        else if (tab->M[0][2] == adv && tab->M[2][0] == VAZIO){
+             tab->M[2][0] = jogador->tipo; jogou = 1; 
+            }
+            
+        else if (tab->M[2][0] == adv && tab->M[0][2] == VAZIO){
+             tab->M[0][2] = jogador->tipo; jogou = 1;
+             }
     }
 
     if (!jogou) {
