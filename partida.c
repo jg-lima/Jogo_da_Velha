@@ -52,7 +52,13 @@ void inicia(Partida *p) {
 
             joga(atual, &p->tab);
             resultado = temVencedor(&p->tab);
-            atual = (atual == &p->jogador1) ? &p->jogador2 : &p->jogador1;
+             
+            if (atual == &p->jogador1) {
+                atual = &p->jogador2;
+            } 
+            else {
+                atual = &p->jogador1;
+            }
         }
 
         desenha(&p->tab);
@@ -83,8 +89,14 @@ void inicia(Partida *p) {
             resultado = temVencedor(&p->tab);
         }
         desenha(&p->tab);
-        if (resultado == EMPATE) printf("Deu Velha! Empate!\n");
-        else if (resultado == p->jogadorHumano.tipo) printf("Fim de Jogo! Vencedor: Jogador 1!\n");
-        else printf("Fim de Jogo! Vencedor: IA!\n");
+        if (resultado == EMPATE){
+             printf("Deu Velha! Empate!\n");
+        }
+        else if (resultado == p->jogadorHumano.tipo){
+             printf("Fim de Jogo! Vencedor: Jogador 1!\n");
+        }
+        else {
+            printf("Fim de Jogo! Vencedor: IA!\n");
+        }
     }
 }
