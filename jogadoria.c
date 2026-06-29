@@ -13,15 +13,17 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
     }
 
     int tipos[] = {jogador->tipo, adv};
-    for (int t = 0; t < 2 && !jogou; t++) {
-        for (l = 0; l < 3 && !jogou; l++) {
-            for (c = 0; c < 3 && !jogou; c++) {
+    for (int t = 0; t < 2 && jogou != 1; t++) {
+        for (l = 0; l < 3 && jogou != 1; l++) {
+            for (c = 0; c < 3 && jogou != 1; c++) {
                 if (tab->M[l][c] == VAZIO) {
                     tab->M[l][c] = tipos[t];
+
                     if (temVencedor(tab) != VAZIO) {
                         tab->M[l][c] = jogador->tipo;
                         jogou = 1;
-                    } else {
+                    } 
+                    else {
                         tab->M[l][c] = VAZIO;
                     }
                 }
@@ -29,9 +31,9 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
         }
     }
 
-    if (!jogou) {
-        for (l = 0; l < 3 && !jogou; l++) {
-            for (c = 0; c < 3 && !jogou; c++) {
+    if (jogou != 1) {
+        for (l = 0; l < 3 && jogou != 1; l++) {
+            for (c = 0; c < 3 && jogou != 1; c++) {
                 if (tab->M[l][c] == VAZIO) {
                     tab->M[l][c] = jogador->tipo;
                     
@@ -48,7 +50,7 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
         jogou = 1;
     }
 
-    if (!jogou) {
+    if (jogou != 1) {
         if (tab->M[0][0] == adv && tab->M[2][2] == VAZIO){
              tab->M[2][2] = jogador->tipo; jogou = 1; 
             }
@@ -60,15 +62,15 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
         else if (tab->M[0][2] == adv && tab->M[2][0] == VAZIO){
              tab->M[2][0] = jogador->tipo; jogou = 1; 
             }
-            
+
         else if (tab->M[2][0] == adv && tab->M[0][2] == VAZIO){
              tab->M[0][2] = jogador->tipo; jogou = 1;
              }
     }
 
-    if (!jogou) {
+    if (jogou != 1) {
         int cantos[4][2] = {{0,0}, {0,2}, {2,0}, {2,2}};
-        for(int i=0; i<4 && !jogou; i++) {
+        for(int i=0; i<4 && jogou != 1; i++) {
             if (tab->M[cantos[i][0]][cantos[i][1]] == VAZIO) {
                 tab->M[cantos[i][0]][cantos[i][1]] = jogador->tipo;
                 jogou = 1;
@@ -76,8 +78,8 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
         }
     }
 
-    for (l = 0; l < 3 && !jogou; l++) {
-        for (c = 0; c < 3 && !jogou; c++) {
+    for (l = 0; l < 3 && jogou != 1; l++) {
+        for (c = 0; c < 3 && jogou != 1; c++) {
             if (tab->M[l][c] == VAZIO) {
                 tab->M[l][c] = jogador->tipo;
                 jogou = 1;
