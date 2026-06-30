@@ -47,8 +47,12 @@ void inicia(Partida *p) {
 
         while (resultado == VAZIO) {
             desenha(&p->tab);
-            if (atual == &p->jogador1) printf("   JOGADOR 1   \n");
-            else printf("   JOGADOR 2   \n");
+            if (atual == &p->jogador1){
+                 printf("   JOGADOR 1   \n");
+            }
+            else{
+                 printf("   JOGADOR 2   \n");
+            }
 
             joga(atual, &p->tab);
             resultado = temVencedor(&p->tab);
