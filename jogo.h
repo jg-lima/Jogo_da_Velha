@@ -1,12 +1,14 @@
 #ifndef JOGO_H
 #define JOGO_H
 
-#define VAZIO 0
-#define BOLA 1
-#define XIS 4
-#define EMPATE 2
-#define VITORIA_BOLA 3
-#define VITORIA_XIS 12
+typedef enum {
+    VAZIO = 0,
+    BOLA = 1,
+    EMPATE = 2,
+    VITORIA_BOLA = 3,
+    XIS = 4,
+    VITORIA_XIS = 12
+} EstadoJogo;
 
 typedef struct { 
     int M[3][3];
