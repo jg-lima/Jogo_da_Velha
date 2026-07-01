@@ -1,4 +1,4 @@
-#include "jogo.h"
+#include "jogadorteclado.h"
 #include <stdio.h>
 
 void joga(JogadorTeclado *jogador, Tabuleiro *tab){

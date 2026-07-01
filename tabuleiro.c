@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "jogo.h"
+#include "tabuleiro.h"
 
 void desenha(Tabuleiro *tab) {
     printf("\033[2J\033[H");

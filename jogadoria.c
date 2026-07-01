@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "jogo.h"
+#include "jogadoria.h"
 
 void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
     int l, c, jogou = 0;

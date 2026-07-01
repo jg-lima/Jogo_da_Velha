@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-#include "jogo.h"
+#include "partida.h"
 
 void configuraJogadores(Partida *p) {
     for (int i = 0; i < 3; i++) {
