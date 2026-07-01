@@ -23,7 +23,7 @@ void desenha(Tabuleiro *tab) {
             printf("___|___|___\n");
         } else {
             printf("   |   |   \n");
-        }
+        }  
     }
 }
 void marcaJogada(Tabuleiro *tab, int x, int y, int tipo) {

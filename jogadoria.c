@@ -31,6 +31,39 @@ void jogaIA(JogadorIA *jogador, Tabuleiro *tab) {
         }
     }
 
+    if (jogou != 1) {
+        for (l = 0; l < 3 && jogou != 1; l++) {
+            for (c = 0; c < 3 && jogou != 1; c++) {
+                if (tab->M[l][c] == VAZIO) {
+                    
+                    tab->M[l][c] = jogador->tipo;
+                    int total = 0; 
+                    
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                            if (tab->M[i][j] == VAZIO) {
+                                
+                                tab->M[i][j] = jogador->tipo;
+                                
+                                if (temVencedor(tab) != VAZIO) {
+                                    total++;
+                                }
+                                
+                                tab->M[i][j] = VAZIO; 
+                            }
+                        }
+                    }
+                    
+                    if (total >= 2) {
+                        jogou = 1; 
+                    } else {
+                        tab->M[l][c] = VAZIO; 
+                    }
+                }
+            }
+        }
+    }
+
     if (!jogou && tab->M[1][1] == VAZIO) {
         tab->M[1][1] = jogador->tipo;
         jogou = 1;
